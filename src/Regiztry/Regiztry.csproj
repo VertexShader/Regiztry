@@ -65,6 +65,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Merchandise.cs" />
+    <Compile Include="Models\MerchRequest.cs" />
+    <Compile Include="Models\MerchSource.cs" />
+    <Compile Include="Models\RegiztryContext.cs" />
     <Compile Include="Models\Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
