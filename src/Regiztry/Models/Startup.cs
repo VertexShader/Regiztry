@@ -8,6 +8,23 @@ namespace Regiztry.Models
         public Uri WebSite { get; set; }
         public string Description { get; set; }
         public bool Active { get; set; }
+    }
 
+    public class Merch
+    {
+        
+    }
+
+    public class Food
+    {}
+
+    public class Device
+    {}
+
+
+
+    public class Req
+    {
+        
     }
 }
