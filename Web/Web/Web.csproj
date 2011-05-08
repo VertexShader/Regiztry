@@ -231,7 +231,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Startup\Index.cshtml" />
+    <Content Include="Views\Startups\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -246,7 +246,7 @@
     <Content Include="Views\User\GetUpOnIt.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Startup\Details.cshtml" />
+    <Content Include="Views\Startups\Details.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
