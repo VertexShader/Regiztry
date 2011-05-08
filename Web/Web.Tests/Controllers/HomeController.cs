@@ -8,18 +8,6 @@ namespace Web.Tests.Controllers
     public class HomeControllerTests
     {
         [Test]
-        public void Index_Always_DirectsToIndexView()
-        {
-            var controller = new HomeController();
-
-            var result = controller.Index();
-            var vResult = result as ViewResult;
-
-            Assert.True(vResult != null, "controller result should be  a ViewResult");
-            Assert.True(vResult.ViewName == string.Empty || vResult.ViewName == "Index", "view result should point to Index, but points to " + vResult.ViewName);
-        }
-
-        [Test]
         public void home_should_show_contact_information_page()
         {
             var controller = new HomeController();
@@ -34,5 +22,7 @@ namespace Web.Tests.Controllers
             var result = controller.Index();
             Assert.IsNotNull(result);
         }
+
+
     }
 }
