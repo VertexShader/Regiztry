@@ -1,0 +1,50 @@
+﻿@model Regiztry.Models.MerchRequest
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>MerchRequest</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Identifier)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Identifier)
+            @Html.ValidationMessageFor(model => model.Identifier)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequestedOn)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequestedOn)
+            @Html.ValidationMessageFor(model => model.RequestedOn)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

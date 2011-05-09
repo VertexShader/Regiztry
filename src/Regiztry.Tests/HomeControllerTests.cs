@@ -12,5 +12,12 @@ namespace Regiztry.Tests
             var controller = new HomeController();
             Assert.IsNotNull(controller.Index());
         }
+
+        [Test]
+        public void should_display_contacts_page()
+        {
+            var controller = new HomeController();
+            Assert.IsNotNull(controller.Contact());
+        }
     }
 }

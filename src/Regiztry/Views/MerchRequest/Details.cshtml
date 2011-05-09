@@ -1,0 +1,31 @@
+﻿@model Regiztry.Models.MerchRequest
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MerchRequest</legend>
+
+    <div class="display-label">Identifier</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Identifier)
+    </div>
+
+    <div class="display-label">RequestedOn</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestedOn)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

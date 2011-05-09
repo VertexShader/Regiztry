@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode
+       url="~/"
+       title="Regiztry Home"
+       description="The Regiztry Home Page">
+    <siteMapNode
+        url="/contact"
+        title="Contact"
+        description="Contact us." />
+    <siteMapNode
+        url="/merchandise/index"
+        title="Merchandise"
+        description="Our Services" />
+    <siteMapNode
+        url="/merchrequest"
+        title="Requests"
+        description="About Us" />
+    <siteMapNode
+        url="/startups"
+        title="Startups"
+        description="Working startups aiming for success!" />
+
+
+  </siteMapNode>
+</siteMap>
