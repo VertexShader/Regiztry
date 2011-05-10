@@ -1,0 +1,53 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	font-weight: bold;
+	}
+	
+h1 {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	font-weight:bold;
+	margin:0;
+	padding:0;
+	}
+
+hr {
+	border:none;
+	border-top:1px solid #CCCCCC;
+	height:1px;
+	margin-bottom:25px;
+	}
+	
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	}
+	
+#menu {
+	width: 200px;
+	margin: 10px;
+	}
+	
+#menu li a {
+  	height: 32px;
+  	voice-family: "\"}\""; 
+  	voice-family: inherit;
+  	height: 24px;
+	text-decoration: none;
+	}
+	
+	
+#menu li a:link, #menu li a:visited {
+	color: #8D9179;
+	display: block;
+	background: url(menu.gif);
+	padding: 8px 0 0 10px;
+	}
+	
+#menu li a:hover, #menu li a:active {
+	color: #6C7250;
+	background: url(menu.gif) 0 -32px;
+	padding: 8px 0 0 10px;
+	}
