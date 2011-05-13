@@ -5,6 +5,7 @@ using Regiztry.Models;
 
 namespace Regiztry.Controllers
 { 
+/*
     public class MerchSourceController : Controller
     {
         private RegiztryContext db = new RegiztryContext();
@@ -83,4 +84,5 @@ namespace Regiztry.Controllers
             base.Dispose(disposing);
         }
     }
+*/
 }

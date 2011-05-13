@@ -1,0 +1,18 @@
+﻿@model List<Regiztry.Models.Startup>
+
+@{
+    ViewBag.Title = "Our Startups!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Our Startups!</h2>
+@Html.ActionLink("new", "create")
+<ul>
+@{
+    foreach (var startup in Model)
+    {
+       <li>@startup.Name</li>
+    }
+    
+}
+</ul>
