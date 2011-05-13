@@ -10,7 +10,7 @@ namespace Regiztry.Tests
         public void should_display_home_page()
         {
             var controller = new HomeController();
-            Assert.IsNotNull(controller.Index());
+            Assert.IsNotNull(controller.Show());
         }
 
         [Test]

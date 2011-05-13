@@ -5,7 +5,7 @@ namespace Regiztry.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Show()
         {
             return View();
         }
