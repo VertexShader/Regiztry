@@ -9,6 +9,7 @@ using Regiztry.Models;
 
 namespace Regiztry.Controllers
 { 
+/*
     public class MerchRequestController : Controller
     {
         private RegiztryContext db = new RegiztryContext();
@@ -81,4 +82,5 @@ namespace Regiztry.Controllers
             base.Dispose(disposing);
         }
     }
+*/
 }
