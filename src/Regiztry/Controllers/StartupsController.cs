@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Regiztry.Models;
 
@@ -11,10 +8,7 @@ namespace Regiztry.Controllers
     {
         public ActionResult Show()
         {
-            List<Startup> startups;
-            using(var work = Regiztry.UnitOfWork())
-                startups = work.GetAll<Startup>().ToList();
-
+            var startups = Regiztry.WorkOn(unitOfWork => unitOfWork.GetAll<Startup>().ToList());
             return View(startups);
         }
 
@@ -34,11 +28,11 @@ namespace Regiztry.Controllers
             try
             {
                 var startup = new Startup {Name = collection["Name"]};
-                using(var work = Regiztry.UnitOfWork())
-                {
-                    work.Insert(startup);
-                    work.Commit();
-                }
+                Regiztry.WorkOn(work =>
+                    {
+                        work.Insert(startup);
+                        work.Commit();
+                    });
                 return RedirectToAction("Show");
             }
             catch

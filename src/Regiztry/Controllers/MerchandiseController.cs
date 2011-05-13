@@ -1,31 +1,25 @@
 ﻿using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Web.Mvc;
 using Regiztry.Models;
-using SisoDb;
 
 namespace Regiztry.Controllers
 { 
     public class MerchandiseController : Controller
     {
-        IUnitOfWork work = Regiztry.UnitOfWork();
-
         public ViewResult Index()
         {
             IEnumerable<Merchandise> merch = new List<Merchandise>();
-            using (work) merch = work.GetAll<Merchandise>();
+            merch = Regiztry.WorkOn(work => work.GetAll<Merchandise>());
 
             return View(merch);
         }
 
       public ViewResult Details(int id)
-        {
-          Merchandise merchandise;
-          using(work) merchandise = work.GetById<Merchandise>(id);
+      {
+          var merchandise = Regiztry.WorkOn(work => work.GetById<Merchandise>(id));
 
-            return View(merchandise);
-        }
+          return View(merchandise);
+      }
 
         public ActionResult Create()
         {
@@ -37,11 +31,11 @@ namespace Regiztry.Controllers
         {
             if (ModelState.IsValid)
             {
-                using(work)
+                Regiztry.WorkOn(work =>
                 {
                     work.Insert(merchandise);
                     work.Commit();
-                }
+                });
                 return RedirectToAction("Index");  
             }
 
@@ -50,8 +44,7 @@ namespace Regiztry.Controllers
         
         public ActionResult Edit(int id)
         {
-            Merchandise merchandise;
-            using (work) merchandise = work.GetById<Merchandise>(id);
+            var merchandise = Regiztry.WorkOn(work => work.GetById<Merchandise>(id));
             return View(merchandise);
         }
 
@@ -60,11 +53,11 @@ namespace Regiztry.Controllers
         {
             if (ModelState.IsValid)
             {
-                using(work)
+                Regiztry.WorkOn(work =>
                 {
                     work.Update(merchandise);
                     work.Commit();
-                }
+                });
                 return RedirectToAction("Index");
             }
             return View(merchandise);
@@ -72,19 +65,18 @@ namespace Regiztry.Controllers
 
         public ActionResult Delete(int id)
         {
-            Merchandise merchandise;
-            using (work) merchandise = work.GetById<Merchandise>(id);
+            var merchandise = Regiztry.WorkOn(work => work.GetById<Merchandise>(id));
             return View(merchandise);
         }
 
-       [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            using (work)
+            Regiztry.WorkOn(work =>
             {
                 work.DeleteById<Merchandise>(id);
                 work.Commit();
-            }
+            });
            return RedirectToAction("Index");
         }
     }
