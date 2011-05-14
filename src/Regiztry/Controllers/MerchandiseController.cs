@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Regiztry.Models;
 
@@ -6,10 +7,9 @@ namespace Regiztry.Controllers
 { 
     public class MerchandiseController : Controller
     {
-        public ViewResult Index()
+        public ViewResult Show()
         {
-            IEnumerable<Merchandise> merch = new List<Merchandise>();
-            merch = Regiztry.WorkOn(work => work.GetAll<Merchandise>());
+            var merch = Regiztry.WorkOn(work => work.GetAll<Merchandise>().ToList());
 
             return View(merch);
         }
@@ -36,7 +36,7 @@ namespace Regiztry.Controllers
                     work.Insert(merchandise);
                     work.Commit();
                 });
-                return RedirectToAction("Index");  
+                return RedirectToAction("Show");  
             }
 
             return View(merchandise);
@@ -58,7 +58,7 @@ namespace Regiztry.Controllers
                     work.Update(merchandise);
                     work.Commit();
                 });
-                return RedirectToAction("Index");
+                return RedirectToAction("Show");
             }
             return View(merchandise);
         }
@@ -77,7 +77,7 @@ namespace Regiztry.Controllers
                 work.DeleteById<Merchandise>(id);
                 work.Commit();
             });
-           return RedirectToAction("Index");
+           return RedirectToAction("Show");
         }
     }
 }
