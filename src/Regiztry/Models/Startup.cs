@@ -4,7 +4,7 @@ namespace Regiztry.Models
 {
     public class Startup
     {
-        public int Id { get; set; }
+        public Guid SisoId { get; set; }
         public string Name { get; set; }
         public Uri WebSite { get; set; }
         public string Description { get; set; }

@@ -1,4 +1,4 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Regiztry.Models;
@@ -7,18 +7,19 @@ namespace Regiztry.Controllers
 { 
     public class MerchandiseController : Controller
     {
-        private RegiztryContext db = new RegiztryContext();
-
-        public ViewResult Index()
+        public ViewResult Show()
         {
-            return View(db.MerchandiseItems.ToList());
+            var merch = Regiztry.WorkOn(work => work.GetAll<Merchandise>().ToList());
+
+            return View(merch);
         }
 
       public ViewResult Details(int id)
-        {
-            Merchandise merchandise = db.MerchandiseItems.Find(id);
-            return View(merchandise);
-        }
+      {
+          var merchandise = Regiztry.WorkOn(work => work.GetById<Merchandise>(id));
+
+          return View(merchandise);
+      }
 
         public ActionResult Create()
         {
@@ -30,9 +31,12 @@ namespace Regiztry.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.MerchandiseItems.Add(merchandise);
-                db.SaveChanges();
-                return RedirectToAction("Index");  
+                Regiztry.WorkOn(work =>
+                {
+                    work.Insert(merchandise);
+                    work.Commit();
+                });
+                return RedirectToAction("Show");  
             }
 
             return View(merchandise);
@@ -40,7 +44,7 @@ namespace Regiztry.Controllers
         
         public ActionResult Edit(int id)
         {
-            Merchandise merchandise = db.MerchandiseItems.Find(id);
+            var merchandise = Regiztry.WorkOn(work => work.GetById<Merchandise>(id));
             return View(merchandise);
         }
 
@@ -49,32 +53,31 @@ namespace Regiztry.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(merchandise).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Regiztry.WorkOn(work =>
+                {
+                    work.Update(merchandise);
+                    work.Commit();
+                });
+                return RedirectToAction("Show");
             }
             return View(merchandise);
         }
 
         public ActionResult Delete(int id)
         {
-            Merchandise merchandise = db.MerchandiseItems.Find(id);
+            var merchandise = Regiztry.WorkOn(work => work.GetById<Merchandise>(id));
             return View(merchandise);
         }
 
-       [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
-            Merchandise merchandise = db.MerchandiseItems.Find(id);
-            db.MerchandiseItems.Remove(merchandise);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
         {
-            db.Dispose();
-            base.Dispose(disposing);
+            Regiztry.WorkOn(work =>
+            {
+                work.DeleteById<Merchandise>(id);
+                work.Commit();
+            });
+           return RedirectToAction("Show");
         }
     }
 }

@@ -1,0 +1,11 @@
+﻿@model Regiztry.Models.Startup
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create a Startup!</h2>
+@Html.BeginForm("create","startups")
+@Html.EditorForModel()
+<input type="submit" value="Submit" />
