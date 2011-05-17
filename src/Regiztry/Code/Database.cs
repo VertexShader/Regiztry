@@ -25,7 +25,7 @@ namespace Regiztry
         static void InitializeDatabase()
         {
             if (database != null) return;
-            var connectionString = ConfigurationManager.ConnectionStrings["regiztry"];
+            var connectionString = ConfigurationManager.ConnectionStrings["default"];
             var connectionInfo =
                 new SisoConnectionInfo(string.Format(@"sisodb:provider=Sql2008||plain:{0}", connectionString));
             var factory = new SisoDbFactory();
