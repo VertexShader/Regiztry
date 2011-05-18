@@ -12,11 +12,6 @@ namespace Regiztry.Controllers
             return View(startups);
         }
 
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-        
         public ActionResult Create()
         {
             return View(new Startup());
