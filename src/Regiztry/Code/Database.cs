@@ -22,6 +22,13 @@ namespace Regiztry
                 work(unitOfWork);
         }
 
+        public static T QueryWith<T>(Func<IQueryEngine,T> query)
+        {
+            InitializeDatabase();
+            using (var q = database.CreateQueryEngine())
+                return query(q);
+        }
+
         static void InitializeDatabase()
         {
             if (database != null) return;

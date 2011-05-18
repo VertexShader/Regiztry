@@ -8,7 +8,7 @@ namespace Regiztry.Controllers
     {
         public ActionResult Show()
         {
-            var startups = Regiztry.WorkOn(unitOfWork => unitOfWork.GetAll<Startup>().ToList());
+            var startups = Regiztry.QueryWith(query => query.GetAll<Startup>().ToList());
             return View(startups);
         }
 
