@@ -36,6 +36,9 @@
     <Reference Include="Elmah, Version=1.2.13605.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\elmah.1.2\lib\Elmah.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\nspec.0.9.39\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="ServiceStack.Text">
       <HintPath>..\packages\SisoDb.2.1.2\lib\ServiceStack.Text.dll</HintPath>
     </Reference>
