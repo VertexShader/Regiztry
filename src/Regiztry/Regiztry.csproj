@@ -66,8 +66,6 @@
     <Compile Include="Code\Database.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MerchandiseController.cs" />
-    <Compile Include="Controllers\MerchRequestController.cs" />
-    <Compile Include="Controllers\MerchSourceController.cs" />
     <Compile Include="Controllers\StartupsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -97,11 +95,11 @@
     <Content Include="images\r_menu.gif" />
     <Content Include="images\search.gif" />
     <Content Include="images\search_bg.gif" />
-    <Content Include="Content\js\arial.js" />
-    <Content Include="Content\js\cufon-yui.js" />
-    <Content Include="Content\js\cuf_run.js" />
-    <Content Include="Content\js\jquery.js" />
-    <Content Include="Content\style.css" />
+    <Content Include="js\arial.js" />
+    <Content Include="js\cufon-yui.js" />
+    <Content Include="js\cuf_run.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="style.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />

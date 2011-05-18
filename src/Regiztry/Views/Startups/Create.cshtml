@@ -1,11 +1,28 @@
 ﻿@model Regiztry.Models.Startup
-
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Create a Startup!</h2>
-@Html.BeginForm("create","startups")
-@Html.EditorForModel()
-<input type="submit" value="Submit" />
+<h2>
+    Create a Startup!</h2>
+@using (Html.BeginForm("create", "startups"))
+{
+    @Html.ValidationSummary(true)
+    <ol>
+        <li>
+            @Html.LabelFor(model => model.Name)
+            @Html.EditorFor(model => model.Name, new { @class = "text" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </li>
+        <li>
+            @Html.LabelFor(model => model.Description)
+            @Html.EditorFor(model => model.Description, new { @class = "text" })
+            @Html.ValidationMessageFor(model => model.Description)
+        </li>
+        <li class="buttons">
+            <input type="submit" name="imageField" id="imageField" value="Regizter Startup" class="send" />
+            <div class="clr">
+            </div>
+        </li>
+    </ol>
+}

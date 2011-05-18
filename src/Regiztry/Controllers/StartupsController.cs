@@ -15,19 +15,20 @@ namespace Regiztry.Controllers
         public ActionResult Create()
         {
             return View(new Startup());
-        } 
+        }
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Startup startup)
         {
+            startup.Active = true;
+
             try
             {
-                var startup = new Startup {Name = collection["Name"]};
                 Regiztry.WorkOn(work =>
-                    {
-                        work.Insert(startup);
-                        work.Commit();
-                    });
+                {
+                    work.Insert(startup);
+                    work.Commit();
+                });
                 return RedirectToAction("Show");
             }
             catch
@@ -35,6 +36,6 @@ namespace Regiztry.Controllers
                 return View();
             }
         }
-       
+
     }
 }
