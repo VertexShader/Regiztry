@@ -55,3 +55,6 @@ db/*.sqlite3
 log/*
 tmp/*
 public/system/*
+
+# data dirs
+App_Data
