@@ -2,7 +2,38 @@
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2>
+    Welcome to the Regiztry!</h2>
+<p>
+    We're located in beautiful Seattle, Washington. If you'd like to get in touch, please
+    send us a message and will follow up with you shortly.</p>
 
-<h2>Welcome to the Regiztry!</h2>
-
-<p>We're located in beautiful Seattle, Washington.</p>
+<form action="#" method="post" id="contactform">
+<ol>
+    <li>
+        <label for="name">
+        </label>
+        <input id="name" name="name" class="text" />
+    </li>
+    <li>
+        <label for="email">
+            E-Mail*</label>
+        <input id="email" name="email" class="text" />
+    </li>
+    <li>
+        <label for="company">
+            Website</label>
+        <input id="company" name="company" class="text" />
+    </li>
+    <li>
+        <label for="message">
+            Your Message*</label>
+        <textarea id="message" name="message" rows="6" cols="50"></textarea>
+    </li>
+    <li class="buttons">
+        <input type="submit" name="imageField" id="imageField" value="Send message" class="send" />
+        <div class="clr">
+        </div>
+    </li>
+</ol>
+</form>

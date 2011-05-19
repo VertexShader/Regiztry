@@ -5,7 +5,7 @@
 }
 <h2>
     Create a Startup!</h2>
-@using (Html.BeginForm("create", "startups"))
+@using (Html.BeginForm("create", "startups", FormMethod.Post, new { id="formz"}))
 {
     @Html.ValidationSummary(true)
     <ol>

@@ -80,29 +80,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\gallery_1.gif" />
-    <Content Include="images\gallery_2.gif" />
-    <Content Include="images\gallery_3.gif" />
-    <Content Include="images\gallery_4.gif" />
-    <Content Include="images\gallery_5.gif" />
-    <Content Include="images\gallery_6.gif" />
-    <Content Include="images\header_bg.gif" />
-    <Content Include="images\img_1.jpg" />
-    <Content Include="images\img_2.jpg" />
-    <Content Include="images\img_3.jpg" />
-    <Content Include="images\img_main.jpg" />
-    <Content Include="images\logo.gif" />
-    <Content Include="images\l_bg.gif" />
-    <Content Include="images\l_menu.gif" />
-    <Content Include="images\r_bg.gif" />
-    <Content Include="images\r_menu.gif" />
-    <Content Include="images\search.gif" />
-    <Content Include="images\search_bg.gif" />
-    <Content Include="js\arial.js" />
-    <Content Include="js\cufon-yui.js" />
-    <Content Include="js\cuf_run.js" />
-    <Content Include="js\jquery.js" />
-    <Content Include="style.css" />
+    <Content Include="Content\images\header_bg.gif" />
+    <Content Include="Content\images\img_main.jpg" />
+    <Content Include="Content\images\l_bg.gif" />
+    <Content Include="Content\images\l_menu.gif" />
+    <Content Include="Content\images\r_bg.gif" />
+    <Content Include="Content\images\r_menu.gif" />
+    <Content Include="Content\js\arial.js" />
+    <Content Include="Content\js\cufon-yui.js" />
+    <Content Include="Content\js\cuf_run.js" />
+    <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
@@ -117,7 +105,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\show.cshtml" />
+    <Content Include="Views\Home\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Contact.cshtml" />
@@ -136,36 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Merchandise\Delete.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MerchRequest\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MerchRequest\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MerchRequest\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MerchRequest\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MerchRequest\Delete.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MerchSource\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MerchSource\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MerchSource\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MerchSource\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MerchSource\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Startups\Show.cshtml" />
