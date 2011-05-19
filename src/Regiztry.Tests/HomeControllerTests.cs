@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
 using NSpec;
 using NSpec.Domain;
 using NUnit.Framework;
@@ -32,7 +31,7 @@ namespace Regiztry.Tests
 
     public class ShimFinder : ISpecFinder
     {
-        private Type[] types;
+        private readonly Type[] types;
 
         public ShimFinder(Type[] types)
         {
@@ -47,7 +46,7 @@ namespace Regiztry.Tests
 
     class using_the_home_controller : nspec
     {
-        HomeController home = new HomeController();
+        readonly HomeController home = new HomeController();
 
         void when_calling_actions_on_the_controller()
         {
@@ -58,7 +57,7 @@ namespace Regiztry.Tests
 
     class using_the_startups_controller: nspec
     {
-        StartupsController startups = new StartupsController();
+        readonly StartupsController startups = new StartupsController();
 
         void when_calling_actions_on_the_controller()
         {
