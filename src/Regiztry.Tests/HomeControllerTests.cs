@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 using NSpec;
 using NSpec.Domain;
 using NUnit.Framework;
@@ -8,7 +9,8 @@ using Regiztry.Controllers;
 
 namespace Regiztry.Tests
 {
-    //Run the Runnershim with TD.Net to execute all the NSpec tests with NUnit.
+    //See NSpec.org for more... trying this out 
+    //Run the RunnerShim with TD.Net to execute all the NSpec tests with N
     [TestFixture]
     public class RunnerShim
     {
@@ -43,15 +45,25 @@ namespace Regiztry.Tests
         }
     }
 
-
-    public class using_the_home_controller : nspec
+    class using_the_home_controller : nspec
     {
-        HomeController controller = new HomeController();
+        HomeController home = new HomeController();
 
-        public void when_calling_actions_on_the_controller()
+        void when_calling_actions_on_the_controller()
         {
-            specify = () => controller.Show().should_not_be_null();
-            specify = () => controller.Contact().should_not_be_null();
+            specify = () => home.Show().should_not_be_null();
+            specify = () => home.Contact().should_not_be_null();
         }
+    }
+
+    class using_the_startups_controller: nspec
+    {
+        StartupsController startups = new StartupsController();
+
+        void when_calling_actions_on_the_controller()
+        {
+            specify = () => startups.Show().should_not_be_null();
+            specify = () => startups.Create().should_not_be_null();
+        }    
     }
 }

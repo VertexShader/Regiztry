@@ -7,7 +7,7 @@ namespace Regiztry
     public class Regiztry
     {
         static ISisoDatabase database;
-
+        
         public static T WorkOn<T>(Func<IUnitOfWork,T> work)
         {
             InitializeDatabase();
