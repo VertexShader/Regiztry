@@ -5,18 +5,26 @@ using Regiztry.Models;
 
 namespace Regiztry.Controllers
 { 
-    public class MerchandiseController : Controller
+    public class MerchandiseController : RegiztryBaseController
     {
+        public QueryDelegate<IList<Merchandise>> QueryAll;
+        public QueryDelegate<Merchandise> QueryById;
+
+        public MerchandiseController() {
+            QueryAll = Regiztry.GetQueryDelegate<IList<Merchandise>>();
+            QueryById = Regiztry.GetQueryDelegate<Merchandise>();
+        }
+                                                         
+
         public ViewResult Show()
         {
-            var merch = Regiztry.WorkOn(work => work.GetAll<Merchandise>().ToList());
-
+            var merch = QueryAll(work => work.GetAll<Merchandise>().ToList());
             return View(merch);
         }
 
       public ViewResult Details(int id)
       {
-          var merchandise = Regiztry.WorkOn(work => work.GetById<Merchandise>(id));
+          var merchandise = QueryById(work => work.GetById<Merchandise>(id));
 
           return View(merchandise);
       }
@@ -31,7 +39,7 @@ namespace Regiztry.Controllers
         {
             if (ModelState.IsValid)
             {
-                Regiztry.WorkOn(work =>
+                workOnDelegate(work =>
                 {
                     work.Insert(merchandise);
                     work.Commit();
@@ -44,7 +52,7 @@ namespace Regiztry.Controllers
         
         public ActionResult Edit(int id)
         {
-            var merchandise = Regiztry.WorkOn(work => work.GetById<Merchandise>(id));
+            var merchandise = QueryById(work => work.GetById<Merchandise>(id));
             return View(merchandise);
         }
 
@@ -53,7 +61,7 @@ namespace Regiztry.Controllers
         {
             if (ModelState.IsValid)
             {
-                Regiztry.WorkOn(work =>
+                workOnDelegate(work =>
                 {
                     work.Update(merchandise);
                     work.Commit();
@@ -65,14 +73,14 @@ namespace Regiztry.Controllers
 
         public ActionResult Delete(int id)
         {
-            var merchandise = Regiztry.WorkOn(work => work.GetById<Merchandise>(id));
+            var merchandise = QueryById(work => work.GetById<Merchandise>(id));
             return View(merchandise);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Regiztry.WorkOn(work =>
+            workOnDelegate(work =>
             {
                 work.DeleteById<Merchandise>(id);
                 work.Commit();

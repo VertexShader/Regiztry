@@ -70,6 +70,7 @@
     <Compile Include="Code\Database.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MerchandiseController.cs" />
+    <Compile Include="Controllers\RegiztryBaseController.cs" />
     <Compile Include="Controllers\StartupsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -1,68 +1,70 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using NSpec;
-//using NSpec.Domain;
-//using NUnit.Framework;
-//using Regiztry.Controllers;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using NSpec;
+using NSpec.Domain;
+using NUnit.Framework;
+using Regiztry.Controllers;
+using Regiztry.Models;
+using SisoDb;
 
-//namespace Regiztry.Tests
-//{
-//    //See NSpec.org for more... trying this out 
-//    //Run the RunnerShim with TD.Net to execute all the NSpec tests with N
-//    [TestFixture]
-//    public class RunnerShim
-//    {
-//        [Test]
-//        public void AllTests()
-//        {
-//            var finder = new ShimFinder(typeof(RunnerShim).Assembly.GetTypes());
+namespace Regiztry.Tests {
+    //See NSpec.org for more... trying this out 
+    //Run the RunnerShim with TD.Net to execute all the NSpec tests with N
+    [TestFixture]
+    public class RunnerShim {
+        [Test]
+        public void AllTests() {
+            var finder = new ShimFinder(typeof(RunnerShim).Assembly.GetTypes());
 
-//            var builder = new ContextBuilder(finder, new DefaultConventions());
+            var builder = new ContextBuilder(finder, new DefaultConventions());
 
-//            var runner = new ContextRunner(builder);
+            var runner = new ContextRunner(builder);
 
-//            runner.Run();
+            runner.Run();
+            var results = runner.Failures();
+            if (results.Count() != 0) {
+                foreach (var result in results)
+                    Assert.Fail(String.Format("{0} failed because of {1}", result.Spec, result.Exception));
+            } else {
 
-//            if (runner.Failures().Count() != 0)
-//                Assert.Fail("Some NSpec test failed");
-//        }
-//    }
+            } Assert.Pass("All " + runner.Examples().Count() + " passed");
+                
+        }
+    }
 
-//    public class ShimFinder : ISpecFinder
-//    {
-//        private readonly Type[] types;
+    public class ShimFinder : ISpecFinder {
+        private readonly Type[] types;
 
-//        public ShimFinder(Type[] types)
-//        {
-//            this.types = types;
-//        }
+        public ShimFinder(Type[] types) {
+            this.types = types;
+        }
 
-//        public IEnumerable<Type> SpecClasses()
-//        {
-//            return types;
-//        }
-//    }
+        public IEnumerable<Type> SpecClasses() {
+            return types;
+        }
+    }
 
-//    class using_the_home_controller : nspec
-//    {
-//        readonly HomeController home = new HomeController();
+    public class using_the_home_controller : nspec {
+        readonly HomeController home = new HomeController();
 
-//        void when_calling_actions_on_the_controller()
-//        {
-//            specify = () => home.Show().should_not_be_null();
-//            specify = () => home.Contact().should_not_be_null();
-//        }
-//    }
+        void when_calling_actions_on_the_controller() {
+            specify = () => home.Show().should_not_be_null();
+            specify = () => home.Contact().should_not_be_null();
+        }
+    }
 
-//    class using_the_startups_controller : nspec
-//    {
-//        readonly StartupsController startups = new StartupsController();
+    public class using_the_startups_controller : nspec {
+        readonly StartupsController startups = new StartupsController();
+        readonly QueryDelegate<IList<Startup>> mockQueryDelegate = using_the_startups_controller.mockDBCall;
 
-//        void when_calling_actions_on_the_controller()
-//        {
-//            specify = () => startups.Show().should_not_be_null();
-//            specify = () => startups.Create().should_not_be_null();
-//        }
-//    }
-//}
+        public static IList<Startup> mockDBCall(Func<IQueryEngine, IList<Startup>> query) {
+            return new List<Startup>{ new Startup {Name="test" } };
+        }
+        void when_calling_actions_on_the_controller() {
+            startups.QueryAll = mockQueryDelegate;
+            specify = () => startups.Show().should_not_be_null();
+            specify = () => startups.Create().should_not_be_null();
+        }
+    }
+}

@@ -4,8 +4,23 @@ using SisoDb;
 
 namespace Regiztry
 {
-    public class Regiztry
-    {
+    public delegate T QueryDelegate<T>(Func<IQueryEngine, T> query);
+    public delegate T GenericWorkOnDelegate<T>(Func<IUnitOfWork, T> work);
+    public delegate void WorkOnDelegate(Action<IUnitOfWork> work);
+
+    public class Regiztry {
+
+        public static QueryDelegate<T> GetQueryDelegate<T>() {
+            return new QueryDelegate<T>(Regiztry.QueryWith);
+        }
+
+        public static GenericWorkOnDelegate<T> GetGenericWorkOnDelegate<T>() {
+            return new GenericWorkOnDelegate<T>(Regiztry.WorkOn);
+        }
+
+        public static WorkOnDelegate GetWorkOnDelegate() {
+            return new WorkOnDelegate(Regiztry.WorkOn);
+        }
         static ISisoDatabase database;
         
         public static T WorkOn<T>(Func<IUnitOfWork,T> work)
