@@ -51,12 +51,13 @@ namespace Regiztry.Tests {
         void when_calling_actions_on_the_controller() {
             specify = () => home.Show().should_not_be_null();
             specify = () => home.Contact().should_not_be_null();
+            specify = () => home.About().should_not_be_null();
         }
     }
 
     public class using_the_startups_controller : nspec {
         readonly StartupsController startups = new StartupsController();
-        readonly QueryDelegate<IList<Startup>> mockQueryDelegate = using_the_startups_controller.mockDBCall;
+        readonly QueryDelegate<IList<Startup>> mockQueryDelegate = mockDBCall;
 
         public static IList<Startup> mockDBCall(Func<IQueryEngine, IList<Startup>> query) {
             return new List<Startup>{ new Startup {Name="test" } };
@@ -67,4 +68,16 @@ namespace Regiztry.Tests {
             specify = () => startups.Create().should_not_be_null();
         }
     }
+
+    public class using_the_merchandise_controller : nspec
+    {
+        readonly MerchandiseController merchandise = new MerchandiseController();
+
+        void when_calling_actions_on_the_merchandise_controller()
+        {
+            specify = () => merchandise.Show().should_not_be_null();
+            specify = () => merchandise.Create();
+        }
+    }
+
 }

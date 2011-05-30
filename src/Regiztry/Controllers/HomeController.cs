@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Regiztry.Controllers
 {
@@ -10,7 +9,12 @@ namespace Regiztry.Controllers
             return View();
         }
 
-        public object Contact()
+        public ViewResult Contact()
+        {
+            return View();
+        }
+
+        public ViewResult About()
         {
             return View();
         }

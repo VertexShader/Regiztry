@@ -1,26 +1,24 @@
 ﻿@model Regiztry.Models.Merchandise
-
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Merchandise Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Details</h2>
-
+<h2>
+    Details</h2>
 <fieldset>
     <legend>Merchandise</legend>
-
-    <div class="display-label">Name</div>
+    <div class="display-label">
+        Name</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Name)
     </div>
-
-    <div class="display-label">Description</div>
+    <div class="display-label">
+        Description</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Description)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.SisoId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SisoId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
