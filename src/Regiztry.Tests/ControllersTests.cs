@@ -75,8 +75,8 @@ namespace Regiztry.Tests {
 
         void when_calling_actions_on_the_merchandise_controller()
         {
-            specify = () => merchandise.Show().should_not_be_null();
-            specify = () => merchandise.Create();
+            //specify = () => merchandise.Show().should_not_be_null();
+            //specify = () => merchandise.Create();
         }
     }
 
