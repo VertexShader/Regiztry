@@ -1,19 +1,17 @@
 ﻿@model Regiztry.Models.ContactMessage
 @{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "ContactMessageTempDELETE";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>
-    Welcome to the Regiztry!</h2>
+    ContactMessageTempDELETE</h2>
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-<p>
-    We're located in beautiful Seattle, Washington. If you'd like to get in touch, please
-    send us a message and will follow up with you shortly.</p>
-@using (Html.BeginForm("Send", "Home", FormMethod.Post, new { @class = "formz" }))
+@using (Html.BeginForm("Send", "Home", FormMethod.Post, new { id = "formz" }))
 {
     @Html.ValidationSummary(true)
-    <ol>
+    <fieldset>
+        <legend>ContactMessage</legend>
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
         </div>
@@ -42,11 +40,11 @@
             @Html.EditorFor(model => model.Sent)
             @Html.ValidationMessageFor(model => model.Sent)
         </div>
-        <li class="buttons">
-            <input type="submit" value="Send Message" class="send" id="imageField" />
-        </li>
-    </ol>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
 }
-<script language="javascript" type="text/javascript">
-    var locationz = "contact";
-</script>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

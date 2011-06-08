@@ -9,5 +9,6 @@ namespace Regiztry.Models
         public Uri WebSite { get; set; }
         public string Description { get; set; }
         public bool Active { get; set; }
+        public string[] Associates { get; set; }
     }
 }

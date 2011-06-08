@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Regiztry.Models;
 
 namespace Regiztry.Controllers
 {
@@ -11,6 +12,14 @@ namespace Regiztry.Controllers
 
         public ViewResult Contact()
         {
+            return View();
+        }
+
+        public ViewResult Send(ContactMessage contactMessage)
+        {
+
+
+
             return View();
         }
 

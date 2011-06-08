@@ -15,7 +15,7 @@
     @Html.ValidationSummary(true)
     <ol>
         <li>
-             @Html.LabelFor(model => model.Name)
+            @Html.LabelFor(model => model.Name)
             @Html.EditorFor(model => model.Name, new { @class = "text" })
             @Html.ValidationMessageFor(model => model.Name)
         </li>
