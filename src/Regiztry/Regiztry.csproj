@@ -149,9 +149,6 @@
     <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\ContactMessageTempDELETE.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\Send.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

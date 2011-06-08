@@ -10,40 +10,28 @@
 <p>
     We're located in beautiful Seattle, Washington. If you'd like to get in touch, please
     send us a message and will follow up with you shortly.</p>
-@using (Html.BeginForm("Send", "Home", FormMethod.Post, new { @class = "formz" }))
+@using (Html.BeginForm("Send", "Home", FormMethod.Post, new { id = "formz" }))
 {
     @Html.ValidationSummary(true)
     <ol>
-        <div class="editor-label">
+        <li>
             @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { width = "100%" })
             @Html.ValidationMessageFor(model => model.Name)
-        </div>
-        <div class="editor-label">
+        </li>
+        <li>
             @Html.LabelFor(model => model.Email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
+            @Html.TextBoxFor(model => model.Email, new { width = "100%" })
             @Html.ValidationMessageFor(model => model.Email)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Message)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Message)
+        </li>
+        <li>@Html.LabelFor(model => model.Message)
+            @Html.TextAreaFor(model => model.Message, new { width = "100%" })
             @Html.ValidationMessageFor(model => model.Message)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Sent)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Sent)
-            @Html.ValidationMessageFor(model => model.Sent)
-        </div>
+        </li>
         <li class="buttons">
-            <input type="submit" value="Send Message" class="send" id="imageField" />
+            <input type="submit" id="imageField" value="Send Message" class="send" />
+            <div class="clr">
+            </div>
         </li>
     </ol>
 }
