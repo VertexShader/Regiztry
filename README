@@ -1,4 +1,12 @@
-So far the project is utilizing ASP.NET MVC 3 with Razor for the View Engine. On the back end we have SisoDB thanks to Ang3lfir3!
+What is the Regiztry?
+
+The Startup Regiztry offers tangible, real help to the teams of people that are about to start a company together. The first version is aimed at lean/bootstrapped companies. Do you remember those pesky wedding registry sites that your friends got when they got married or when they had babies? Well, this is just like that, except it works with multiple vendors and it's for the "event" of starting a startup, celebrating a product milestone, or whatever!
+
+Everyone knows it takes a lot to go from idea to actual product. The Regiztry is here to fill in many of those gaps by pooling friend/community support and turning that fuzzy "support" concept into things a startup actually needs: a couple of red bull cases, a coupon to order X number of pizzas, a coupon for web services, coffee, coupons for Chipotle, whatever it takes!
+
+-Rodica
+
+So far the project is utilizing ASP.NET MVC 3 with Razor for the View Engine. On the back end we have SisoDB thanks to @Ang3lfir3!
 
 Will have more updates and information regarding the application here soon.
 
