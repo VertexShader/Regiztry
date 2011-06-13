@@ -1,0 +1,58 @@
+﻿@model Regiztry.Models.Setting
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Setting</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RegiztryUser)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RegiztryUser)
+            @Html.ValidationMessageFor(model => model.RegiztryUser)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.First)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.First)
+            @Html.ValidationMessageFor(model => model.First)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Last)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Last)
+            @Html.ValidationMessageFor(model => model.Last)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstIdentificationMade)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstIdentificationMade)
+            @Html.ValidationMessageFor(model => model.FirstIdentificationMade)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

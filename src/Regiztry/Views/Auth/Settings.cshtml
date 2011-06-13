@@ -1,0 +1,36 @@
+﻿@model Regiztry.Models.Setting
+
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Settings</h2>
+
+<fieldset>
+    <legend>Setting</legend>
+
+    <div class="display-label">RegiztryUser</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegiztryUser)
+    </div>
+
+    <div class="display-label">First</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.First)
+    </div>
+
+    <div class="display-label">Last</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Last)
+    </div>
+
+    <div class="display-label">FirstIdentificationMade</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstIdentificationMade)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
