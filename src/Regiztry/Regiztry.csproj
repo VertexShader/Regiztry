@@ -93,10 +93,6 @@
     <Content Include="Content\images\l_menu.gif" />
     <Content Include="Content\images\r_bg.gif" />
     <Content Include="Content\images\r_menu.gif" />
-    <Content Include="Content\js\arial.js" />
-    <Content Include="Content\js\cufon-yui.js" />
-    <Content Include="Content\js\cuf_run.js" />
-    <Content Include="Content\js\jquery.js" />
     <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\images\ui-bg_diagonals-small_0_aaaaaa_40x40.png" />
@@ -165,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Auth\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Individuals.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
